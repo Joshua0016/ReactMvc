@@ -1,0 +1,15 @@
+services:
+  database:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Jos95123!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./Setup:/Setup
+    command: >
+      bash -c "
+      /opt/mssql/bin/sqlservr &
+      sleep 30 &&
+      /opt/mssql-tools18/bin/sqlcmd -U sa -P Jos95123! -C -i /Setup/midb.sql && wait"
