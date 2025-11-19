@@ -10,5 +10,6 @@ namespace WebApplication1.Models
     {
        public AppDbcontext() : base("DefaultConnection") { }
        public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
