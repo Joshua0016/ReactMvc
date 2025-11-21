@@ -22,13 +22,21 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ContentResult GetAll()
         {
-            var products = _repo.GetAll();
-            var json = JsonConvert.SerializeObject(products, new JsonSerializerSettings
+            try
             {
-                DateFormatString = "yyyy-MM-dd"
-            });
-            Response.StatusCode = 200;
-            return Content(json, "application/json");
+                var products = _repo.GetAll();
+                var json = JsonConvert.SerializeObject(products, new JsonSerializerSettings
+                {
+                    DateFormatString = "yyyy-MM-dd"
+                });
+                Response.StatusCode = 200;
+                return Content(json, "application/json");
+            }catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Content(ex.ToString(), "text-plain");
+            }
+
         }
         [HttpGet]
         public ContentResult Get(int id)
