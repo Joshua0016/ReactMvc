@@ -1,8 +1,7 @@
 async function customers() {
 
     try {
-
-         let response = await fetch("/api/Customer/GetAll");
+        let response = await fetch("/api/Customer/GetAll");
         if(!response.ok){
         let result = await response.json();
         console.log(result.message, result.success);
