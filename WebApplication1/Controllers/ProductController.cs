@@ -82,6 +82,7 @@ namespace WebApplication1.Controllers
             return Json(new { success = true, message = "Entidad creada correctamente" });
 
         }
+        
         [HttpDelete]
         public JsonResult Delete(int id)
         {

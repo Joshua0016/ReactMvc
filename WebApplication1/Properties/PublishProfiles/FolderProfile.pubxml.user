@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\ZBook\OneDrive\Escritorio\workSpace\ProyectoWebApi\proyecto\WebApplication1\publish</_PublishTargetUrl>
-    <History>True|2025-11-21T04:49:39.3199911Z||;True|2025-11-21T00:05:53.8855602-04:00||;True|2025-11-20T22:09:01.0060559-04:00||;</History>
+    <History>True|2025-11-22T01:53:16.4983559Z||;True|2025-11-21T21:49:27.4216957-04:00||;True|2025-11-21T21:33:09.3012289-04:00||;True|2025-11-21T21:20:55.2584959-04:00||;True|2025-11-21T00:49:39.3199911-04:00||;True|2025-11-21T00:05:53.8855602-04:00||;True|2025-11-20T22:09:01.0060559-04:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -14,10 +14,10 @@
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/21/2025 00:49:38</publishTime>
+      <publishTime>11/21/2025 21:53:15</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/21/2025 00:49:38</publishTime>
+      <publishTime>11/21/2025 21:53:15</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/16/2024 16:46:24</publishTime>
@@ -224,10 +224,10 @@
       <publishTime>05/27/2022 23:42:50</publishTime>
     </File>
     <File Include="bin/WebApplication1.dll">
-      <publishTime>11/21/2025 00:49:29</publishTime>
+      <publishTime>11/21/2025 21:53:10</publishTime>
     </File>
     <File Include="bin/WebApplication1.pdb">
-      <publishTime>11/21/2025 00:49:29</publishTime>
+      <publishTime>11/21/2025 21:53:10</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -341,7 +341,7 @@
       <publishTime>11/18/2025 15:30:33</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/21/2025 00:49:32</publishTime>
+      <publishTime>11/21/2025 21:53:11</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>11/18/2025 15:30:33</publishTime>
