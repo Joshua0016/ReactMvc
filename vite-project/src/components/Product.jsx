@@ -99,9 +99,12 @@ function Product() {
   let deleteOnclick = async () => {
     let id = document.getElementById("IdDelete").value;
     document.getElementById("IdDelete").value = "";
-    await productsDelte(id);
-    let getProducts = await productsGetAll();
-    setDataProduct(getProducts || []);
+    let isDelete = await productsDelte(id);
+    if (isDelete) {
+      let getProducts = await productsGetAll();
+      setDataProduct(getProducts || []);
+    }
+    setIndexProduct(0);
   };
 
   return (

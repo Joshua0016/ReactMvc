@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Diagnostics;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using WebApplication1.Repository;
@@ -81,7 +81,7 @@ namespace WebApplication1.Controllers
 
             var warehouses = _repoWarehouses.GetAll();
 
-            if (!ModelState.IsValid || entity.Price <= 0 || entity.Stock < 0 || !warehouses.Any((x) => x.Id == entity.WarehousesId))
+            if (!ModelState.IsValid || entity.Price <= 0 || entity.Stock < 0 || !entity.Name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 Response.StatusCode = 500;
                 return Json(new { success = false, message = "Datos inválidos" });
@@ -101,28 +101,26 @@ namespace WebApplication1.Controllers
             return Json(new { success = true, message = "Entidad creada correctamente" });
 
         }
+     
 
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            var warehouses = _repoWarehouses.GetAll();
-            var product = _repo.Read(id);
-            if (product == null)
+
+            
+            var producto = _repo.Read(id);
+
+            if (producto == null) 
             {
-                Response.StatusCode = 404;
-                return Json(new { success = false, message = "El producto que intenta eliminar no existe" });
+                HttpContext.Response.StatusCode = 404; // Usar HttpContext.Response para 4.8
+                return Json(new { success = false, message = "El producto no existe o ID inválido" });
             }
-            else if(warehouses.Any((w) => w.Id == product.WarehousesId))
-            {
-                Response.StatusCode = 500;
-                return Json(new { message = "No puedes eliminar un registro con alguna dependencia" });
-            }
-            else
-            {
-                _repo.Delete(id);
-                Response.StatusCode = 204;
-                return Json(new {message = "Registro eliminado con éxito"});
-            }
+
+          
+
+            HttpContext.Response.StatusCode = 200;
+            _repo.Delete(id);
+            return Json(new { message = "Producto eliminado correctamente" });
         }
 
         [HttpPost]
