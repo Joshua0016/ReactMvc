@@ -5,6 +5,7 @@ async function productsGetAll() {
       console.log("Error al realizar la petición");
     } else {
       let result = await responseGetAll.json();
+      console.log("Devolviendo productos");
       return result;
     }
   } catch (error) {
@@ -68,15 +69,17 @@ export async function productUpdate(product) {
 }
 export async function productsDelte(id) {
   try {
-    let response = await fetch(`/api/Product/Delete/?id=${id}`, {
+    let response = await fetch(`/api/Product/Delete?id=${id}`, {
       method: "POST",
     });
     if (!response.ok) {
       let result = await response.json();
       alert("Error " + result.message);
+      return false;
     } else {
       let result = await response.json();
       alert(result.message);
+      return true;
     }
   } catch (error) {
     console.log("Error al ejecutar la consulta " + error);
