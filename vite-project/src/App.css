@@ -1,8 +1,33 @@
+
+.row.mb-3{
+  width: 80%;
+  margin: 0 auto;
+  height: 600px;
+  margin-top: 25px;
+  background-color: beige;
+  border-radius: 20px;
+  padding: 10px;
+ 
+}
+.form-control{
+  margin: 5px
+
+}
 .container.text-center{
   background-color: beige;
   border-radius: 10px;
   margin-top: 30px;
 }
-.pagination{
-  justify-content: center;
+.col-sm-10.checkbox{
+  text-align: left;
 }
+.row.mb-3.delete{
+  height: 200px;
+  text-align: center;
+}
+
+.row.mb-3.warehouse{
+  height: 150px;
+}
+
+

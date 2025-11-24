@@ -40,9 +40,10 @@ namespace WebApplication1.Repository
             return _context.Set<T>().Find(id);
         }
 
-        public void Update(T entitly)
+        public void Update(T entity)
         {
-            _context.Entry(entitly).State = EntityState.Modified;
+            
+           
             _context.SaveChanges();
         }
     }

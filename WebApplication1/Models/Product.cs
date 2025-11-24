@@ -15,7 +15,7 @@ namespace WebApplication1.Models
         public int Stock { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
-        public int CustomerId {  get; set; }
+        public int WarehousesId { get; set; }
 
     }
 }

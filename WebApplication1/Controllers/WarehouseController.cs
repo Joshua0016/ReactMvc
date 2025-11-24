@@ -11,10 +11,11 @@ namespace WebApplication1.Controllers
     public class WarehouseController : Controller
     {
         private readonly Repositories<Warehouse> _repo;
+        private readonly AppDbcontext context;
         // GET: Warehouse
         public WarehouseController()
         {
-            var context = new AppDbcontext();
+            this.context = new AppDbcontext();
             this._repo = new Repositories<Warehouse>(context);
         }
         [HttpGet]
@@ -38,11 +39,11 @@ namespace WebApplication1.Controllers
                 
             }
         }
+
         [HttpPost]
         public JsonResult Create(Warehouse entity)
         {
-            var warehouse = _repo.Read(entity.Id);
-            if(!ModelState.IsValid || warehouse != null || _repo.GetAll().Any((x) => x.Name == entity.Name))
+            if (_repo.GetAll().Any(x => x.Name == entity.Name) || !entity.Name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 Response.StatusCode = 404;
                 return Json(new { success = false, message = "Datos iválidos" });
@@ -54,11 +55,11 @@ namespace WebApplication1.Controllers
                 return Json(new { success = true, message = "Almacén creado correctamente" });
             }
         }
-        [HttpPut]
+        [HttpPost]
         public JsonResult Update(Warehouse entity)
         {
             var warehouse = _repo.Read(entity.Id);
-            if (!ModelState.IsValid || warehouse == null)
+            if (!ModelState.IsValid )
             {
                 Response.StatusCode = 404;
                 return Json(new { success = false, message = "Datos inválidos" });
@@ -66,7 +67,7 @@ namespace WebApplication1.Controllers
             else
             {
                 Response.StatusCode = 200;
-                _repo.Update(entity);
+                context.Entry(warehouse).CurrentValues.SetValues(entity);
                 return Json(new { success = true, message = "Almacén creado correctamente" });
             }
         }

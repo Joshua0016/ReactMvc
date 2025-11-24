@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css'
-import Pagination from './components/Pagination'
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Product from "./components/Product";
+import Warehouse from "./components/Warehouse";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Pagination></Pagination>
+      <Product></Product>
+      <Warehouse></Warehouse>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
